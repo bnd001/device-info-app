@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { DataService } from './data.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -8,23 +10,23 @@ import { DataService } from './data.service';
 })
 export class AppComponent implements OnInit{
 
+  fields: any[] = [];
   data: any[] = [];
+  constructor(private dataService: DataService, private http: HttpClient) { }
 
-  constructor(private dataService: DataService) { }
 
-  ngOnInit(): void {
-    this.getData();
-  }
+  
 
-  getData() {
-    this.dataService.getData().subscribe(
-      (response) => {
-        this.data = response;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+ngOnInit(): void {
+    this.http.get<any>('assets/statticfile.json').subscribe((data) => {
+      this.fields = data.DATA_FIELDS;
+    }); 
+    
+}
+
+
+getData() {
+    this.dataService.getData();
   }
   setData() {
 

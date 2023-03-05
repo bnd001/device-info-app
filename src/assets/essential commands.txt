@@ -1,0 +1,18 @@
+ng build --configuration production --aot
+
+nginx.exe -s quit
+
+npm uninstall -g @angular/cli
+
+npm install -g @angular/cli
+
+npm run ng build
+
+
+
+set NODE_OPTIONS=--openssl-legacy-provider
+
+
+ssh-keygen -t ed25519 -C "baidyanath001@gmail.com"
+
+nginx.exe -s quit

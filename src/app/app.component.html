@@ -24,16 +24,16 @@
     <thead>
     <tr>
       <th>Name</th>
-      <th>Index</th>
       <th>Value</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of data">
-      <td>{{ item.name }}</td>
-      <td><!--<input type="text" [(ngModel)]="item.value" )]>--> {{ item.unit }}</td>
+    <tr *ngFor="let item of fields">
+      <td>{{ item.DISP_NAME }}</td>
+      <td> <input type="text" [(ngModel)]="item.DISP_DEFAULT_VALUE"> {{ item.DISP_UNIT_STRING }}</td>
     </tr>
     <tr>
+      <br>
       <button (click)="getData()" class="btn">Get Data</button>
       <button (click)="setData()"  class="btn">Set Data</button>
     </tr>

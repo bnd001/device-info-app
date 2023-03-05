@@ -1,0 +1,37 @@
+
+for GET
+{
+   "PARAMETERS": 
+   [
+	 { "RESOURCE_ID" : 1 },
+	 { "RESOURCE_ID" : 2 },
+	 { "RESOURCE_ID" : 3 },
+	 { "RESOURCE_ID" : 4 }
+   ]
+}
+
+
+
+for GET response
+{
+   "PARAMETERS": 
+   [
+	 { "RESOURCE_ID" : 1, "PARAM_VALUE" : "0.0" },
+	 { "RESOURCE_ID" : 2, "PARAM_VALUE" : "0.0" },
+	 { "RESOURCE_ID" : 3, "PARAM_VALUE" : "0.0" },
+	 { "RESOURCE_ID" : 4, "PARAM_VALUE" : "0.0" }
+   ]
+}
+
+
+
+for SET response
+{
+   "PARAMETERS": 
+   [
+	 { "RESOURCE_ID" : 1, "PARAM_VALUE" : "0.0" },
+	 { "RESOURCE_ID" : 2, "PARAM_VALUE" : "0.0" },
+	 { "RESOURCE_ID" : 3, "PARAM_VALUE" : "0.0" },
+	 { "RESOURCE_ID" : 4, "PARAM_VALUE" : "0.0" }
+   ]
+}
