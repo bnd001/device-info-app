@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +19,13 @@ export class DataService {
     }); // Use any[] if the response is an array of objects, otherwise use object{}
   }
 
-  getDefaultData() {
-    this.http.get<any>('assets/statticfile.json').subscribe((data) => {
-      this.fields = data.DATA_FIELDS;
-    },
-    (error) => {
-      console.log(error);
+  postData(data: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
     });
-    return this.fields;
+    const url = `${this.apiUrl}/resource`;
+    return this.http.post(this.apiUrl, data, { headers });
   }
 }
+
+
