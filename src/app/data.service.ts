@@ -13,7 +13,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getData() {
-    this.http.get<any[]>(this.apiUrl, { headers : this.constHeader }).subscribe((data) => {
+    this.http.get<any[]>(this.apiUrl).subscribe((data) => {
       return data;
     }); // Use any[] if the response is an array of objects, otherwise use object{}
   }
