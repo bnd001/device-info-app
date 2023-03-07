@@ -6,6 +6,7 @@ npm uninstall -g @angular/cli
 
 npm install -g @angular/cli
 
+//run build via npm command
 npm run ng build
 
 

@@ -44,10 +44,6 @@ generateJSON(input: any): string {
 }
 
 getData() {
-    // this.fields.forEach( element => {   
-    //   this.parameters.push({ "RESOURCE_ID": element.RESOURCE_ID });      
-    // })
-
     for (let i = 0; i < this.fields.length; i++) {
       const param: IParameter = {
         RESOURCE_ID: this.fields[i].RESOURCE_ID
@@ -58,8 +54,21 @@ getData() {
     var req  = this.generateJSON(this.parameterObject);
 
     var resp = this.dataService.getUpdatedData(req);
+    resp.subscribe(data => {
+         this.parameterObject2 = data;
+         this.setDataToUiFields(this.parameterObject2);
+       })
   }
 
+  setDataToUiFields(resp: IParameterObject2 ) {
+    for(let j = 0; j < resp.PARAMETERS.length; j++) {
+      for (let i = 0; i < this.fields.length; i++) {
+        if(resp.PARAMETERS[i].RESOURCE_ID == this.fields[i].RESOURCE_ID) {
+          this.fields[i].DISP_DEFAULT_VALUE = resp.PARAMETERS[i].PARAM_VALUE
+        }
+      }
+    }
+  }
 
 setData() {
 
